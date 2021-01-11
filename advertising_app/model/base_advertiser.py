@@ -1,4 +1,7 @@
-class BaseAdvertising:
+from abc import ABC
+
+
+class BaseAdvertising(ABC):
     def __init__(self):
         self._id = None
         self._clicks = 0
