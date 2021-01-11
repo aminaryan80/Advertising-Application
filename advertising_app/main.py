@@ -1,6 +1,6 @@
-from ad import Ad
-from advertiser import Advertiser
-from base_advertiser import BaseAdvertising
+from advertising_app.model.ad import Ad
+from advertising_app.model.advertiser import Advertiser
+from advertising_app.model.base_advertiser import BaseAdvertising
 
 base_advertising = BaseAdvertising()
 advertiser1 = Advertiser(1, "name1")
