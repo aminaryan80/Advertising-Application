@@ -1,22 +1,30 @@
 class BaseAdvertising:
-    advertisers = []
-
     def __init__(self):
-        self.id = None
-        self.clicks = 0
-        self.views = 0
+        self._id = None
+        self._clicks = 0
+        self._views = 0
 
-    def get_clicks(self):
-        return self.clicks
+    @property
+    def clicks(self):
+        return self._clicks
 
-    def get_views(self):
-        return self.views
+    @clicks.setter
+    def clicks(self, val):
+        self._clicks = val
+
+    @property
+    def views(self):
+        return self._views
+
+    @views.setter
+    def views(self, val):
+        self._views = val
 
     def inc_clicks(self):
-        self.clicks += 1
+        self._clicks += 1
 
     def inc_views(self):
-        self.views += 1
+        self._views += 1
 
     def describe_me(self):
         print("This class contains basics of both Advertiser and ad classes.")
