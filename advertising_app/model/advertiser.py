@@ -6,16 +6,15 @@ class Advertiser(BaseAdvertising):
 
     def __init__(self, id, name):
         super().__init__()
-        self._id = id
-        self._name = name
+        self.id = id
+        self.name = name
 
-    @property
-    def name(self):
-        return self._name
+    def inc_clicks(self):
+        super(Advertiser, self).inc_clicks()
+        Advertiser.__total_clicks += 1
 
-    @name.setter
-    def name(self, value):
-        self._name = value
+    def describe_me(self):
+        print("This is Advertiser " + self.name + ".")
 
     @staticmethod
     def help():
@@ -25,13 +24,6 @@ class Advertiser(BaseAdvertising):
               "click: Total clicks taken by advertiser\n"
               "views: Total views of advertiser ads")
 
-    @staticmethod
-    def total_clicks():
-        return Advertiser.__total_clicks
-
-    def inc_clicks(self):
-        super(Advertiser, self).inc_clicks()
-        Advertiser.__total_clicks += 1
-
-    def describe_me(self):
-        print("This is Advertiser " + self._name + ".")
+    @classmethod
+    def total_clicks(cls):
+        return cls.__total_clicks
